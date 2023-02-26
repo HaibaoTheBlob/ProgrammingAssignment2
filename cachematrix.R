@@ -1,10 +1,15 @@
-## Put comments here that give an overall description of what your
-## functions do
+## makeCacheMatrix takes a given invertible matrix and 
+## packages that matrix into a list that serves as a wrapper class
+## 
+## cacheSolve will then take the output of makeCacheMatrix and calculate
+## the inverse.
 
-## Write a short comment describing this function
+## makeCacheMatrix takes a matrix and packages it into a list. This
+## list is a sort of wrapper class where the methods are set, get
+## setinverse, and getinverse. setinverse caches, or stores, the inverse,
+## while getinverse retrieves the inverse from the cache.
 
 makeCacheMatrix <- function(x = matrix()) {
- #Initialize the inverse matrix to be empty
  i <- NULL
  set <- function(y){
    x <<- y
@@ -19,7 +24,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve takes the wrapper class object produced by makeCacheMatrix 
+## and calls methods from the wrapper object. First it calls
+## getinverse() to check if the inverse is already calculated and computed.
+## If not, it uses solve() to calculate the inverse, then calls
+## setinverse() to cache the inverse inside the wrapper object.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
